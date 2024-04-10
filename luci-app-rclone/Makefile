@@ -10,13 +10,12 @@
 include $(TOPDIR)/rules.mk
 
 LUCI_TITLE:=LuCI support for Rclone
-LUCI_DEPENDS:=+rclone \
+LUCI_DEPENDS:=+rclone-config \
               +PACKAGE_luci-app-rclone_INCLUDE_rclone-webui:rclone-webui-react \
-              +PACKAGE_luci-app-rclone_INCLUDE_rclone-ng:rclone-ng \
-              +PACKAGE_luci-app-rclone_INCLUDE_fuse-utils:fuse-utils
+              +PACKAGE_luci-app-rclone_INCLUDE_rclone-ng:rclone-ng
 LUCI_PKGARCH:=all
 PKG_NAME:=luci-app-rclone
-PKG_VERSION:=1.4.1-3
+PKG_VERSION:=1.4.1-4
 PKG_RELEASE:=
 PKG_LICENSE:=GPLv3.0+
 PKG_MAINTAINER:=ElonH <elonhhuang@gmail.com>
@@ -44,9 +43,6 @@ config PACKAGE_luci-app-rclone_INCLUDE_rclone-ng
 	bool "Include rclone-ng (another webui)"
 	default y
 
-config PACKAGE_luci-app-rclone_INCLUDE_fuse-utils
-	bool "Include fuse-utils (mount cloud storage)"
-	default y
 endef
 
 include $(TOPDIR)/feeds/luci/luci.mk
